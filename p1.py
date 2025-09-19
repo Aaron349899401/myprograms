@@ -10,7 +10,7 @@ while True:
         print("You Win!")
         break
     elif start + dice < 100:
-        new_postion = start + dice
+        new_position = start + dice
         game_dict = {
             9 : 34,
             54 : 19,
@@ -20,6 +20,6 @@ while True:
             99 : 77
         }
         if new_postion in game_dict:
-            start = game_dict[postion]
+            start = game_dict[new_position]
         else:
             start += dice
