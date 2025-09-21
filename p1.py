@@ -4,7 +4,7 @@
 # Editor: Aaron Huang
 start = 1
 while True:
-    dice = int(input("what dod tou roll?: "))
+    dice = int(input("what did you roll?: "))
     if start + dice == 100:
         print("You have reached then End!")
         print("You Win!")
