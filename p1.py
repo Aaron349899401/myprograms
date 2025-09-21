@@ -19,7 +19,7 @@ while True:
             67 : 86,
             99 : 77
         }
-        if new_postion in game_dict:
+        if new_position in game_dict:
             start = game_dict[new_position]
         else:
             start += dice
