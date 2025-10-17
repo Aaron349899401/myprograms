@@ -30,3 +30,5 @@ def cleaner(text):
     if len(negatives) > 0:
         total_sum += int(negatives)
     return upper_case + str(total_sum)
+
+print(cleaner(text))
