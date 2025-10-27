@@ -6,12 +6,18 @@ def bubble(sort):
             if sort[i] < sort[i-1]:
                 sort[i-1], sort[i] = sort[i], sort[i-1]
                 sumting = True
-    for index, item in enumerate(sort):
-        count = 0
-        if sort[index] == sort[index-1]:
+    result = []
+    previous = None
+    count = 0
+    for item in sort:
+        if item == previous:
             count += 1
-        sort[index] += f"({count})"
-    return sort
+            result.append(f"{item}({count})")
+        else:
+            count = 0
+            result.append(item)
+        previous = item
+    return result
 
 wow = input("Enter your string: ")
 sort = [x.strip() for x in wow.split(",")]
