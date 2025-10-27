@@ -1,12 +1,19 @@
 def bubble(sort):
-    i = 0
-    for n in range(len(sort)**2):
-        other = sort[i]
-        if sort[i] < sort[i+1]:
-            sort.replace(sort[i], sort[i+1])
-            sort.replace(sort[i+1], other)
-        new_sort = sort
-    return new_sort
+    sumting = True
+    while sumting:
+        sumting = False
+        for i in range(1, len(sort)):
+            if sort[i] < sort[i-1]:
+                sort[i-1], sort[i] = sort[i], sort[i-1]
+                sumting = True
+    for index, item in enumerate(sort):
+        count = 0
+        if sort[index] == sort[index-1]:
+            count += 1
+        sort[index] += f"({count})"
+    return sort
 
-sort = input("Enter your string: ")
+wow = input("Enter your string: ")
+sort = [x.strip() for x in wow.split(",")]
 print(bubble(sort))
+
