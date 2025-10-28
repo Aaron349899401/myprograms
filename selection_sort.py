@@ -15,3 +15,14 @@ def among(us_list):
                 j += 1
             us_list[i], us_list[new_location] = us_list[new_location], us_list[i]
             i += 1
+
+# for loop version
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_index = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    return arr

@@ -1,11 +1,10 @@
 # Painting Fences
-from math import ceil
-Fence1 = len(str(input("input 'F' for each fence plank: ")))
-Fence2 = len(str(input("input 'F' for each fence plank: ")))
-Fence3 = len(str(input("input 'F' for each fence plank: ")))
+def wow(poop):
+    even_list = [num for num in poop if num % 2 == 0]
+    odd_list = [num for num in poop if num % 2 != 0]
+    sumting = max(even_list, odd_list, key=len)
+    return [] if len(even_list) == len(odd_list) else sumting
 
-Total = Fence1 + Fence2 + Fence3
-rni = ceil(Total / 12)
-print(rni)
-print(Total % 12)
-print(Total * 14.95)
+pee = input("Enter your values: ")
+poop = [int(x.strip()) for x in pee.split(",")]
+print(wow(poop))
