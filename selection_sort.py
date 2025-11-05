@@ -19,10 +19,14 @@ def among(us_list):
 # for loop version
 def selection_sort(arr):
     n = len(arr)
-    for i in range(n):
-        min_index = i
+    for i in range(n-1):
+        max_index = i
         for j in range(i + 1, n):
-            if arr[j] < arr[min_index]:
-                min_index = j
-        arr[i], arr[min_index] = arr[min_index], arr[i]
+            if arr[j] > arr[max_index]:
+                max_index = j
+        arr[i], arr[max_index] = arr[max_index], arr[i]
     return arr
+
+ar = input()
+arr = [x.strip() for x in ar.split(",")]
+print(selection_sort(arr))
