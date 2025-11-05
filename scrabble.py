@@ -19,11 +19,9 @@ print(f"The total scrabble score of your word is: {result3a}")
 # 3b)
 def ww(word_list):
     collection = []
+    word_score = 0
     for item in word_list:
-        word = item
-        word_score = 0
-        for letter in word:
-            word_score += scrab_score(letter)
+        word_score += scrab_score(letter)
         collection.append(word_score)
     return collection
 
