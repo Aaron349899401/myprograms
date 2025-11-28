@@ -1,0 +1,20 @@
+body {
+  background-image: radial-gradient(circle at center, #2641b1, #e01d0f);
+}
+
+h1, h2 {
+    color:#ffffff;
+    font-family:'Times New Roman', Times, serif;
+}
+
+p {
+    background-color:#5d6585;
+    color:#ffffff;
+    font-family:'Times New Roman', Times, serif;
+    padding: 3px 3px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
