@@ -17,3 +17,15 @@ a_list.sort()
 target = input("Enter your target value: ")
 result = bin_search(a_list, target)
 print(f"target value: {target}, index: {result}")
+
+def bin(li, targ):
+    low = 0
+    high = len(li) - 1
+    while low <= high:
+        mid = (high - low)/2
+        if mid == targ:
+            return True
+        elif targ > mid:
+            low = mid
+        elif targ < mid:
+            high = mid
