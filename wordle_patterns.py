@@ -20,12 +20,15 @@ import math
 
 def ski(guess_word, solutions_list):
     result_list = []
+    pattern_counts = {}
+
     guess = guess_word.upper()
     
     for secret in solutions_list:
         secret = secret.upper()
         if len(guess) != len(secret):
             result_list.append("ERROR")
+            pattern_counts["ERROR"] = pattern_counts.get("ERROR", 0) + 1
             continue
             
         result = [""] * len(guess)
@@ -44,16 +47,20 @@ def ski(guess_word, solutions_list):
         # Second pass: Yellows and Blacks
         for i in range(len(guess)):
             if result[i] == "":
-                if guess[i] in secret and secret_counts[guess[i]] > 0:
+                if secret_counts.get(guess[i], 0) > 0:
                     result[i] = "🟨"
                     secret_counts[guess[i]] -= 1
                 else:
                     result[i] = "⬛"
-                    
-        result_list.append("".join(result))
+        
+        pattern = "".join(result)
+        result_list.append(pattern)
+
+        # FIXED LINE
+        pattern_counts[pattern] = pattern_counts.get(pattern, 0) + 1
+
     return result_list
 
-# Example usage
 guess_word = input("Enter your guess word: ")
 solutions_list = ["AGONY", "AXIAL", "CHIRP", "ACTOR", "ARDOR", "HOBBY", "STONE",
                   "TYING", "ATRIA", "CHALK", "RIDER", "CHORE", "PLEAD", "MIGHT",
@@ -89,4 +96,8 @@ def analysis(guess_word, solutions_list):
         "Entropy": entropy,
         "Expected remaining": expected_value
     }
-print(analysis(guess_word, solutions_list)) 
+
+print(analysis(guess_word, solutions_list))
+# result = ski(guess_word, solutions_list)
+# for i in result:
+#     print(f"{i}\n")
