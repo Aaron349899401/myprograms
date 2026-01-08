@@ -97,7 +97,9 @@ def analysis(guess_word, solutions_list):
         "Expected remaining": expected_value
     }
 
-print(analysis(guess_word, solutions_list))
+numbers = analysis(guess_word, solutions_list)
+for key, value in numbers.items():
+    print(f"{key}: {value}")
 # result = ski(guess_word, solutions_list)
 # for i in result:
 #     print(f"{i}\n")
