@@ -1,9 +1,14 @@
 def cleaner(text):
-    for index in range(1, len(text)):
-        if text[index] == text[index-1]:
-            text.remove(text[index])
-            text.remove(text[index-1])
-    return text
+    stack = []
+    for char in text:
+        if stack and stack[-1] == char:
+            stack.pop()   # remove the previous matching char
+        else:
+            stack.append(char)
+    return "".join(stack)
 
 text = "abbaca"
-print(cleaner(text))
+print(cleaner(text))   # Output: "ca"
+
+
+
