@@ -12,3 +12,7 @@ print(cleaner(text))   # Output: "ca"
 
 
 
+def coocoo(string):
+    stick = []
+    for i in string:
+        if stick and stick[-1]
