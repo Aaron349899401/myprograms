@@ -1,15 +1,12 @@
 def bruh(arr):
-    count = 0
     pairs = {}
-    maxi = len(arr)
-    i = 0
-    while i < maxi-1:
-        for j in range(i, maxi):
-            if arr[j] == arr[i] and j not in pairs:
-                count += 1
-                pairs[j] = i
-        i += 1
-    return count
+    for num in arr:
+        pairs[num] = pairs.get(num, 0) + 1
+    total_count = 0
+    for k in pairs.values():
+        total_count += k * (k - 1) // 2 
+    # we use floor div because normal produces a float and floor produces an int
+    return total_count
 
 inputty = "1 2 1 1 2"
 arr = list(map(int, inputty.split()))
