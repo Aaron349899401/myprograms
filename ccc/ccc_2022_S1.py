@@ -10,5 +10,14 @@ def finn(target):
             solutions += 1
     return solutions   
 
+def ccc2022_s1(n):
+    count = 0
+    # b is the number of 5s
+    for b in range(n // 5 + 1):
+        remaining = n - 5 * b
+        if remaining % 4 == 0:
+            count += 1
+    return count
+
 target = 14
 print(finn(target))
