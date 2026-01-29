@@ -23,3 +23,13 @@ wow = input("Enter your string: ")
 sort = [x.strip() for x in wow.split(",")]
 print(bubble(sort))
 
+
+
+def selection(arr):
+    n = len(arr)
+    for i in range(1, n):
+        max = i 
+        for j in range(i, n):
+            if j > max:
+                max = j 
+            arr[max], arr[j] = 

@@ -16,3 +16,5 @@ def insertion_for(a_list):
         for money in range(i, 0, -1):
             if a_list[money] < a_list[money-1]:
                 a_list[money-1], a_list[money] = a_list[money], a_list[money-1]
+            else:
+                break
