@@ -3,25 +3,24 @@ N = int(input("Enter: "))
 M = int(input())
 connections = [tuple(map(int, input("Enter: ").split())) for _ in range(M)]
 
-if len(connections) != (N - 1):
-graphs = {i: [] for i in range(1, N + 1)}
-prev = 0
-for a, b in paths:
-    if 
-    graphs[a].append(b)
-    graphs[b].append(a)
+def func(connections, N):
+    if len(connections) != (N - 1):
+        return "NO"
 
-queue = deque([1])
-visited = {1}
+    graphs = {i: [] for i in range(1, N + 1)}
+    prev = 0
+    for a, b in paths:
+        if 
+        graphs[a].append(b)
+        graphs[b].append(a)
 
-while queue:
-    curr = queue.popleft()
-    for neighbor in graph[curr]:
-        if neighbor not in visited:
-            visited.add(neighbor)
-            queue.append(neighbor)
+    queue = deque([1])
+    visited = {1}
 
-if len(visited) == N:
-    print("YES")
-else:
-    print("NO")
+    while queue:
+        curr = queue.popleft()
+        for neighbor in graph[curr]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+    return "YES" if len(visited) == N else "NO"
