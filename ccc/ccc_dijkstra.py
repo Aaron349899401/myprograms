@@ -1,25 +1,27 @@
-import heapq
+import heapq # min-heap
 def dijkstra(N, edges, start):
-    graph = {i: [] for i in range(1, N + 1)}
+    graph = [i: [] for i in range(1, N + 1)]
     for a, b, w in edges:
-        graph[a].append((w, b))
-        graph[b].append((w, a))
-    
-    dist = {i: float("inf") for i in range(1, N + 1)}
-    dist[start] = 0
-    heap = [(0, start)]
+        graph[a].append((b, w))
+        graph[b].append((a, w))
 
-    while heap:
-        curr_dist, node = heapq.heappop(heap)
+    INF = 10**18
+    distance = [INF] * (N)
+    distance[start] = 0
 
-        if curr_dist > dist[node]:
+    priority_queue = [(0, start)]
+
+    while priority_queue:
+        current_dist, current = heapq.heappop(priority_queue)
+
+        if current_dist > distance[current]:
             continue
-        
-        for weight, neighbor in graph[node]:
-            new_dist = curr_dist + weight
-            
-            if new_dist < dist[neighbor]:
-                dist[neighbor] = new_dist
-                heapq.heappush(heap, (new_dist, neighbor))
 
-    return dist
+        for neighbor, weight in graph[current]:
+            new_dist = current_dist + weight
+
+            if new_dist < distance[neighbor]:
+                distance[neighbor] = new_dist
+                heapq.heappush(priority_queue, (new_dist, neighbor)) # sorts by first item in tuple
+
+    return distance
