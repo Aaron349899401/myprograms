@@ -5,7 +5,7 @@ input = sys.stdin.readline
 
 N, M = map(int, input().split())
 
-graph = [i: [] for i in range(N + 1)]
+graph = [[] for _ in range(N + 1)]
 maxT = 0
 
 for _ in range(M):
