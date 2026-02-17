@@ -3,7 +3,7 @@ def contraints(must, cant, groups):
     group_of = {}
     for i, group in enumerate(groups):
         for student in group:
-            group_of[student] = i
+            group_of[student] = i # assigning a group number to a student using indexes
     for a, b in must:
         if group_of[a] != group_of[b]:
             count += 1

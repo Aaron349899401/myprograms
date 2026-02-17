@@ -16,5 +16,7 @@ for _ in range(Q):
 R = sum(row)
 C = sum(col)
 
-gold = R * (W - C) + (H - R) * C
+gold = R * (W - C) + (H - R) * C  # determines the depth/number of Gs per row/column
 print(gold)
+
+
