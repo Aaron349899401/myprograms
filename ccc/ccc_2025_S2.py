@@ -23,6 +23,40 @@ def cipher(output, target):
         total += amount
     return None
 
-output = "a4b1c2d10"
+cipher = "a4b1c2d10"
 target = 100
-print(cipher(output, target))
+
+
+
+
+
+
+# Attempt 2
+def rle(cipher, target):
+    un_cipher = []
+    count = ""
+    char = ""
+    for i in cipher:
+        if i.isalpha():
+            if char != "":
+                un_cipher.append((char, int(count)))
+                count = ""
+            char = i
+        else:
+            count += i
+    
+    if char != "":
+        un_cipher.append((char, int(count)))
+
+    length = sum(y for x, y in un_cipher)
+    target = target % length
+    total = 0
+    for char, amount in un_cipher:
+        if total + amount >= target:
+            return char
+        total += amount
+
+cipher = input().strip()
+target = int(input())
+
+print(rle(cipher, target))
