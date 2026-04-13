@@ -23,7 +23,7 @@ def astar(num_nodes, start, goal, graph, heuristic):
                 heapq.heappush(priority_queue, (new_f, new_g, neighbor))
     return parent
 
-def heuristic(node):
+def heuristic(node): # guesses the distance between node and the goal
     x, y = node
     gx, gy = goal
     return abs(x - gx) + abs(y - gy)
